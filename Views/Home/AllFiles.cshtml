@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FilesMVC.Models.FileModel>
+@{
+    ViewData["Title"] = "Files";
+}
+<h3>Choose file for download</h3>
+<form asp-action="AddFile" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" /><br>
+    <input type="submit" value="Download" />
+</form>
+ 
+<h3>Все файлы</h3>
+@foreach(var f in Model)
+{
+    <p><img class="imageFile"src="@Url.Content(f.Path)"></p>
+}
